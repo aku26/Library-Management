@@ -1,0 +1,58 @@
+<div>
+    <md-content flex layout-padding>
+		<md-button class="md-raised md-primary" ng-click = "populateTable()">Show all loans</md-button>
+		<p style="color:#cc0099;">Search by attribute:</p>
+        <md-input-container>
+		<!--<mdt-column column-definition="Loan Id" align-rule="left"><span>Loan Id</span></mdt-column>
+                <mdt-column column-definition="Book Title" align-rule="left"><span>Book Title</span></mdt-column>
+                <mdt-column column-definition="Borrower Id" align-rule="left"><span>Borrower Id</span></mdt-column>
+                <mdt-column column-definition="Borrower Name" align-rule="left"><span>Borrower Name</span></mdt-column>
+                <mdt-column column-definition="Date Out" align-rule="left"><span>Date Out</span></mdt-column>
+                <mdt-column column-definition="Due Date" align-rule="left"><span>Due Date</span></mdt-column>-->
+			
+            <label style="color:#00cc99;">Isbn</label>
+            <input ng-model="isbn" ng-keypress = "enterIsbn($event)"><br>
+        </md-input-container>
+        <md-input-container>
+            <label style="color:#00cc99;">Card Id</label>
+            <input ng-model="borrowerId" ng-keypress = "enterBorrowerId($event)"><br>
+        </md-input-container>
+        <md-input-container>
+            <label style="color:#00cc99;">Borrower Name</label>
+            <input ng-model="nameSubStr" ng-keypress = "enterName($event)"><br>
+        </md-input-container>
+		<br>
+		<label style="color:#0000b3;">Select a loan tuple to return a book!</label>
+		<md-input-container>
+			
+           <!--<label style="color:#00cc99;">Select a loan tuple to pay for the loan!</label>-->
+           
+        </md-input-container>
+        <mdt-table table-card="{visible: true, title: 'Loans'}"
+                   mdt-row-paginator-error-message="Error happened during loading Loans."
+                   selectable-rows="true"
+                   selected-row-callback="checkin(rows)"
+                   mdt-row="{data: loans,
+                'table-row-id-key': 'id',
+                      'column-keys': [
+                          'loanid',
+                          'title',
+                          'card_id',
+                          'borrower_name',
+                          'date_out',
+                          'due_date'
+                      ]
+                      }">
+            <mdt-header-row>
+                <mdt-column column-definition="Loan Id" align-rule="left"><span>Loan Id</span></mdt-column>
+                <mdt-column column-definition="Book Title" align-rule="left"><span>Book Title</span></mdt-column>
+                <mdt-column column-definition="Borrower Id" align-rule="left"><span>Borrower Id</span></mdt-column>
+                <mdt-column column-definition="Borrower Name" align-rule="left"><span>Borrower Name</span></mdt-column>
+                <mdt-column column-definition="Date Out" align-rule="left"><span>Date Out</span></mdt-column>
+                <mdt-column column-definition="Due Date" align-rule="left"><span>Due Date</span></mdt-column>
+            </mdt-header-row>
+        </mdt-table>
+
+
+    </md-content>
+</div>
